@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 public class User implements Serializable{
@@ -27,4 +28,8 @@ public class User implements Serializable{
     private Integer createUid;
 
     private Integer status;
+
+    private List<String> roleStrlist;
+
+    private List<String> perminsStrlist;
 }
