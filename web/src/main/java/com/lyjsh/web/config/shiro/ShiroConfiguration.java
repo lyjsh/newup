@@ -1,4 +1,4 @@
-package com.lyjsh.config.shiro;
+package com.lyjsh.web.config.shiro;
 
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -8,13 +8,12 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class ShiroConfiguration {
 
     @Bean(name = "lifecycleBeanPostProcessor")
@@ -72,9 +71,10 @@ public class ShiroConfiguration {
         filterChainDefinitionManager.put("/user/**", "authc,roles[user]");
         filterChainDefinitionManager.put("/shop/**", "authc,roles[shop]");
         filterChainDefinitionManager.put("/admin/**", "authc,roles[admin]");
+        filterChainDefinitionManager.put("/test","anon");
         filterChainDefinitionManager.put("/login", "anon");//anon 可以理解为不拦截
         filterChainDefinitionManager.put("/ajaxLogin", "anon");//anon 可以理解为不拦截
-        filterChainDefinitionManager.put("/statistic/**",  "anon");//静态资源不拦截
+        filterChainDefinitionManager.put("/static/**",  "anon");//静态资源不拦截
         filterChainDefinitionManager.put("/**",  "authc,roles[user]");//其他资源全部拦截
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionManager);
 

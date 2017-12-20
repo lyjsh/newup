@@ -2,6 +2,7 @@ package com.lyjsh.entity;
 
 import lombok.Data;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
@@ -12,6 +13,8 @@ public class User implements Serializable{
     private Integer id;
 
     private String name;
+
+    private String userName;
 
     private String pwd;
 
@@ -29,7 +32,9 @@ public class User implements Serializable{
 
     private Integer status;
 
+    @Transient
     private List<String> roleStrlist;
 
+    @Transient
     private List<String> perminsStrlist;
 }

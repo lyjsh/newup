@@ -11,6 +11,13 @@
     <packaging>jar</packaging>
     <artifactId>system</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.lyjsh</groupId>
+            <artifactId>domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <!-- 一定要声明如下配置-->
