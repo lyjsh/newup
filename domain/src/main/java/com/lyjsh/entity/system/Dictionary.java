@@ -13,6 +13,12 @@ public class Dictionary {
 
     private Integer pId;
 
-    private Integer status;
+    private Integer dicStatus;
+
+    //层级
+    private Integer dicGrade;
+
+    //排序
+    private Integer dicOrder;
 
 }
