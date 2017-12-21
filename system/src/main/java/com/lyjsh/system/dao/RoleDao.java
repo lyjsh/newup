@@ -1,6 +1,6 @@
-package com.lyjsh.dao;
+package com.lyjsh.system.dao;
 
-import com.lyjsh.entity.Role;
+import com.lyjsh.entity.system.Role;
 import tk.mybatis.mapper.common.BaseMapper;
 
 import java.util.List;

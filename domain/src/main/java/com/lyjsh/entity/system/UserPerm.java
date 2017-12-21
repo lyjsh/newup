@@ -1,4 +1,4 @@
-package com.lyjsh.entity;
+package com.lyjsh.entity.system;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package com.lyjsh.service;
+package com.lyjsh.system.service;
 
-import com.lyjsh.entity.User;
+import com.lyjsh.entity.system.User;
 
 /**
  * @Author wl

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(value = "com.lyjsh.*")
-@MapperScan(basePackages = { "com.lyjsh.dao" })
+@MapperScan(basePackages = { "com.lyjsh.system.dao" })
 public class WebApplication {
 
     public static void main(String[] args) {

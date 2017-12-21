@@ -1,7 +1,7 @@
 package com.lyjsh.web.controller;
 
-import com.lyjsh.entity.User;
-import com.lyjsh.service.UserService;
+import com.lyjsh.entity.system.User;
+import com.lyjsh.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

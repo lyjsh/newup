@@ -1,13 +1,13 @@
-package com.lyjsh.service.impl;
+package com.lyjsh.system.service.impl;
 
-import com.lyjsh.dao.UserDao;
-import com.lyjsh.entity.User;
-import com.lyjsh.service.UserService;
+import com.lyjsh.entity.system.User;
+import com.lyjsh.system.dao.UserDao;
+import com.lyjsh.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;

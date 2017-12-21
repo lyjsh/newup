@@ -1,11 +1,11 @@
 package com.lyjsh.web.config.shiro;
 
-import com.lyjsh.dao.PermDao;
-import com.lyjsh.dao.RoleDao;
-import com.lyjsh.dao.UserDao;
-import com.lyjsh.entity.Permission;
-import com.lyjsh.entity.Role;
-import com.lyjsh.entity.User;
+import com.lyjsh.system.dao.PermDao;
+import com.lyjsh.system.dao.RoleDao;
+import com.lyjsh.system.dao.UserDao;
+import com.lyjsh.entity.system.Permission;
+import com.lyjsh.entity.system.Role;
+import com.lyjsh.entity.system.User;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

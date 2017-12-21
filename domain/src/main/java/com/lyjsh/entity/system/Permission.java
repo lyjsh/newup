@@ -1,22 +1,23 @@
-package com.lyjsh.entity;
+package com.lyjsh.entity.system;
 
 import lombok.Data;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 @Data
-public class Organization implements Serializable{
+public class Permission implements Serializable{
 
     private Integer id;
 
     private String name;
 
+    private String url;
+
+    private String permSymbol;
+
+    private Integer type;
+
     private Integer pId;
-
-    private Timestamp createTime;
-
-    private Timestamp updateTime;
 
     private Integer createUid;
 
