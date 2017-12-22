@@ -2,6 +2,9 @@ package com.lyjsh.entity.system;
 
 import lombok.Data;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -10,6 +13,8 @@ import java.util.List;
 @Data
 public class User implements Serializable{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;

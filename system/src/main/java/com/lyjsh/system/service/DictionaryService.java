@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface DictionaryService {
 
-    void save(Dictionary dictionary);
+    boolean save(Dictionary dictionary) throws Exception;
 
-    void update(Dictionary dictionary);
+    boolean update(Dictionary dictionary);
 
-    PageInfo<Dictionary> pageDictionary(Page page,Integer dicId);
+    PageInfo<Dictionary> pageDictionary(Page page,Dictionary dictionary);
 
     List<Dictionary> listDictionary(Integer dicId);
 }

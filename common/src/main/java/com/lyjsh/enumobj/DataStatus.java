@@ -4,12 +4,13 @@ public enum DataStatus {
 
     YES(1,"启用"),NO(0,"禁用");
 
-    private Integer value;
+    public Integer value;
 
-    private String name;
+    public String name;
 
     DataStatus(Integer value,String name) {
         this.value = value;
         this.name = name;
     }
+
 }

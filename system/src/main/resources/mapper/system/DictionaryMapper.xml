@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyjsh.system.dao.DictionaryDao">
+    <select id="listDictionary" resultType="Dictionary">
+        SELECT
+           t.*
+        FROM
+            sys_dic t
+        WHERE
+            t.p_id = #{id} and t.dic_status = #{dicStatus} order by t.dic_order
+    </select>
+
+    <select id="listAllByPid" resultType="Dictionary" parameterType="Dictionary">
+        SELECT
+            t.*
+        FROM
+            sys_dic t
+       <where>
+           t.p_id = #{id}
+           <if test="null!=name and ''!=name ">
+              and t.name like concat('%',#{name},'%')
+           </if>
+
+           <if test="null!=dicStatus">
+               and t.dic_status = #{dicStatus}
+           </if>
+       </where>
+        order by dic_order
+    </select>
+
+</mapper>
