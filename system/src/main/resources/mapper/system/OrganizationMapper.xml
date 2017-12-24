@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyjsh.system.dao.OrganizationDao">
+    <select id="getByName" resultType="User" parameterType="string">
+        SELECT t.*
+        FROM
+            sys_org t
+        WHERE
+            t.name = #{name}
+    </select>
+
+    <select id="getByName">
+        SELECT t.*
+        FROM sys_org t WHERE t.name = #{name} and t.id != #{orgId};
+    </select>
+
+    <select id="getUserTotal" parameterType="int" resultType="int">
+        SELECT t.user_total from sys_org t WHERE t.id = #{id}
+    </select>
+
+    <select id="getById" parameterType="int" resultType="Organization">
+        SELECT t.* from sys_org t WHERE t.id = #{id}
+    </select>
+
+    <select id="listAllOrg" resultType="Organization">
+        SELECT t.* from sys_org t
+        <where>
+            <if test="null!=status ">
+                t.status = #{status}
+            </if>
+        </where>
+        ORDER BY t.org_order
+    </select>
+</mapper>

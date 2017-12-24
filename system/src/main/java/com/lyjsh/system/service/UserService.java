@@ -1,5 +1,8 @@
 package com.lyjsh.system.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
+import com.lyjsh.Exception.BussException;
 import com.lyjsh.entity.system.User;
 
 /**
@@ -11,5 +14,11 @@ import com.lyjsh.entity.system.User;
 public interface UserService {
 
     User getByUserName(String userName);
+
+    boolean save(User user) throws BussException;
+
+    boolean update(User user) throws BussException;
+
+    PageInfo<User> pageUser(Page page,User user);
 
 }

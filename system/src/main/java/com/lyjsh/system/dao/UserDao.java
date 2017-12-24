@@ -6,4 +6,5 @@ import tk.mybatis.mapper.common.BaseMapper;
 public interface UserDao extends BaseMapper<User> {
 
     User getByUserName(String userName);
+
 }
