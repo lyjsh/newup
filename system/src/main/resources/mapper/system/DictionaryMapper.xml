@@ -29,4 +29,8 @@
         order by dic_order
     </select>
 
+    <select id="listByPid" parameterType="int" resultType="Dictionary">
+        SELECT t.* FROM sys_dic t WHERE  t.p_id = #{pid} ORDER BY dic_order
+    </select>
+
 </mapper>

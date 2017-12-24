@@ -10,4 +10,6 @@ public interface DictionaryDao extends BaseMapper<Dictionary>{
     List<Dictionary> listDictionary(int id,int status);
 
     List<Dictionary> listAllByPid(Dictionary dictionary);
+
+    List<Dictionary> listByPid(int pid);
 }

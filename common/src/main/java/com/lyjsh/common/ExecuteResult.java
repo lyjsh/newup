@@ -1,10 +1,13 @@
 package com.lyjsh.common;
 
+import lombok.Data;
+
 /**
  * @Author wl
  * @Date 2017/12/21 23:57
  * @Todo 通用结果返回封装
  */
+@Data
 public class ExecuteResult {
 
     //操作成功

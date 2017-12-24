@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyjsh.system.dao.RoleDao">
+    <select id="listByUserId" parameterType="int" resultType="Role">
+        SELECT t2.*
+        FROM
+            sys_user_role t1 LEFT JOIN sys_role t2 ON t1.role_id = t2.id
+        WHERE
+            t1.user_id = #{userId}
+    </select>
+
+</mapper>

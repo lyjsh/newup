@@ -8,4 +8,5 @@ import java.util.List;
 public interface RoleDao extends BaseMapper<Role> {
 
     List<Role> listByUserId(Integer userId);
+
 }
