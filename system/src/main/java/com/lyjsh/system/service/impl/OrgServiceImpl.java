@@ -45,7 +45,7 @@ public class OrgServiceImpl implements OrgService{
     @Override
     public boolean update(Organization organization) throws BussException{
         //判断修改的名称是否有相同的数据
-        Organization orgInDb = organizationDao.getByName(organization.getName(),organization.getId());
+        Organization orgInDb = organizationDao.getByNameIdNot(organization.getName(),organization.getId());
         if (!ObjectUtils.isEmpty(orgInDb)) {
             throw new BussException(ExecuteResult.BUSSINESS_ERROR,"部门名称已存在");
         }
@@ -64,5 +64,10 @@ public class OrgServiceImpl implements OrgService{
     @Override
     public List<Organization> listAllOrg(Organization organization) {
         return organizationDao.listAllOrg(organization);
+    }
+
+    @Override
+    public List<Integer> listAllOrgIds(int rootId) {
+        return organizationDao.listAllOrgIds(rootId);
     }
 }

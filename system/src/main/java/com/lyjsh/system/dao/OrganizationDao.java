@@ -11,7 +11,7 @@ public interface OrganizationDao extends BaseMapper<Organization>{
     Organization getByName(String orgName);
 
     //查找id不等于自身的其它数据是否有相同名称
-    Organization getByName(@Param("orgName") String orgName,@Param("orgId") Integer orgId);
+    Organization getByNameIdNot(@Param("orgName") String orgName,@Param("orgId") Integer orgId);
 
     List<Organization> listOrg(Organization organization);
 
@@ -20,4 +20,6 @@ public interface OrganizationDao extends BaseMapper<Organization>{
     Organization getById(Integer id);
 
     List<Organization> listAllOrg(Organization organization);
+
+    List<Integer> listAllOrgIds(int rootId);
 }

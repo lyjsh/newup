@@ -1,5 +1,8 @@
 package com.lyjsh.system.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lyjsh.Exception.BussException;
 import com.lyjsh.common.ExecuteResult;
 import com.lyjsh.entity.system.Organization;
@@ -12,6 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -47,5 +53,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean update(User user) throws BussException {
         return userDao.updateByPrimaryKeySelective(user)==1 ? true : false;
+    }
+
+    @Override
+    public PageInfo<User> pageUser(Page page, User user) {
+        PageHelper.startPage(page.getPageNum(),page.getPageSize());
+        List<Integer> orgIds = null;
+        if (null==user.getOrgId() || Organization.ROOT_ORG_ID==user.getOrgId()) {
+            orgIds = organizationDao.listAllOrgIds(Organization.ROOT_ORG_ID);
+        }else {
+            orgIds = new ArrayList<>(new Integer(user.getOrgId()));
+        }
+        List<User> userList = userDao.listUser(user,orgIds);
+        PageInfo<User> pageInfo = new PageInfo<>(userList);
+        return pageInfo;
     }
 }

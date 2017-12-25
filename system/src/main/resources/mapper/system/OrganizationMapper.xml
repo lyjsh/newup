@@ -10,7 +10,7 @@
             t.name = #{name}
     </select>
 
-    <select id="getByName">
+    <select id="getByNameIdNot">
         SELECT t.*
         FROM sys_org t WHERE t.name = #{name} and t.id != #{orgId};
     </select>
@@ -31,5 +31,9 @@
             </if>
         </where>
         ORDER BY t.org_order
+    </select>
+
+    <select id="listAllOrgIds" parameterType="int" resultType="int">
+        SELECT t.id from sys_org WHERE t.p_id  = #{rootId} order by org_order
     </select>
 </mapper>

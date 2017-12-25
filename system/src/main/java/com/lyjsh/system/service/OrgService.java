@@ -17,4 +17,6 @@ public interface OrgService {
 
     List<Organization> listAllOrg(Organization organization);
 
+    List<Integer> listAllOrgIds(int rootId);
+
 }

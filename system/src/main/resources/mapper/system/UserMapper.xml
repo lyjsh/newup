@@ -11,4 +11,20 @@
             t.user_name = #{userName}
     </select>
 
+    <select id="listUser" resultType="User">
+        SELECT t.* from sys_user
+        <where>
+            <if test="null=user.name and ''!=user.name">
+                t.name like concat('%',#{name},'%')
+            </if>
+            <if test="null!=orgIds and orgIds.size>0">
+                and t.org_id in
+                <foreach collection="orgIds" item="orgId" open="(" separator="," close=")">
+                    #{orgId}
+                </foreach>
+            </if>
+        </where>
+        order by create_time asc
+    </select>
+
 </mapper>
