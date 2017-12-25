@@ -9,4 +9,6 @@ public interface RoleDao extends BaseMapper<Role> {
 
     List<Role> listByUserId(Integer userId);
 
+    List<Role> listRole(Role role);
+
 }

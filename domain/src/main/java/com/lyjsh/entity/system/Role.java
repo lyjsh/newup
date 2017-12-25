@@ -23,4 +23,6 @@ public class Role {
     private Integer createUid;
 
     private Integer status;
+
+    private int roleOrder;
 }
