@@ -19,6 +19,11 @@ public interface UserService {
 
     boolean update(User user) throws BussException;
 
+    /**
+     * @Author wl
+     * @Date 2017/12/25 21:51
+     * @Todo 分页查询user
+     */
     PageInfo<User> pageUser(Page page,User user);
 
 }

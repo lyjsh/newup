@@ -12,7 +12,17 @@ public interface RoleService {
 
     boolean update(Role role);
 
+    /**
+     * @Author wl
+     * @Date 2017/12/25 21:50
+     * @Todo 角色分页查询（查询条件包含在role中）
+     */
     PageInfo<Role> pageRole(Page page,Role role);
 
+    /**
+     * @Author wl
+     * @Date 2017/12/25 21:51
+     * @Todo 列出角色（条件包含在role参数中）
+     */
     List<Role> listRole(Role role);
 }

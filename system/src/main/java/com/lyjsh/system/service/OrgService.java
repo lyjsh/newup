@@ -13,10 +13,25 @@ public interface OrgService {
 
     boolean update(Organization organization) throws BussException;
 
+    /**
+     * @Author wl
+     * @Date 2017/12/25 21:52
+     * @Todo 分页查询部门组织
+     */
     PageInfo<Organization> pageOrg(Page page,Organization organization);
 
+    /**
+     * @Author wl
+     * @Date 2017/12/25 21:52
+     * @Todo 查询所有部门
+     */
     List<Organization> listAllOrg(Organization organization);
 
+    /**
+     * @Author wl
+     * @Date 2017/12/25 21:52
+     * @Todo 查出根节点下的所有部门id
+     */
     List<Integer> listAllOrgIds(int rootId);
 
 }

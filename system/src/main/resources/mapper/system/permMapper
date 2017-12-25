@@ -16,4 +16,27 @@
                WHERE t3.user_id = #{userId})
     </select>
 
+    <insert id="saveUserPerm" parameterType="java.util.List">
+        INSERT INTO sys_user_perm (user_id, perm_id)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            #{item.userId},#{item.permId}
+        </foreach>
+    </insert>
+
+    <insert id="saveRolePerm" parameterType="java.util.List">
+        INSERT INTO sys_role_perm (role_id,perm_id)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            #{roleId},#{permId}
+        </foreach>
+    </insert>
+
+    <delete id="deletePermByUserId" parameterType="int">
+        DELETE FROM sys_user_perm WHERE user_id = #{userId}
+    </delete>
+
+    <delete id="deletePermByRoleId" parameterType="int">
+        DELETE from sys_role_perm WHERE role_id = #{roleId}
+    </delete>
 </mapper>
