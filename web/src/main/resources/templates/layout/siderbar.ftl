@@ -40,7 +40,7 @@
                     <span><a href="hy_list.html" target="main">角色管理</a></span>
                 </li>
                 <li>
-                    <span><a href="rjsj.html" target="main">部门管理</a></span>
+                    <span><a href="/organization/index" target="main">部门管理</a></span>
                 </li>
                 <li>
                     <span><a href="bdcx.html" target="main">权限管理</a></span>

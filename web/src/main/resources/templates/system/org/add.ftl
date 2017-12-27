@@ -11,18 +11,12 @@
                     <span><img src="/static/Assets/images/icon3.png" alt=""/></span>
                     <a href="">系统管理</a>
                     <span><img src="/static/Assets/images/icon3.png" alt=""/></span>
-                    <a href="">部门管理</a>
+                    <a href="/organization/index">部门管理</a>
+                    <span><img src="/static/Assets/images/icon3.png" alt=""/></span>
+                    <a href="">新增</a>
                 </div>
                 <!--当前位置-->
             </div>
-            <!--查询-->
-            <div class="search">
-                <span>按部门名称查询：</span>
-                <div class="s_text"><input name="" type="text"></div>
-                <a href="" class="btn">查询</a>
-                <a href="/organization/view/add" class="btn">新增</a>
-            </div>
-            <!--查询-->
             <div class="space_hx">&nbsp;</div>
             <div class="data_body">
                 <!-- <div class="tree_div">

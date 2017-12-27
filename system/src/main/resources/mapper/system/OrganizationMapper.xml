@@ -12,20 +12,30 @@
 
     <select id="getByNameIdNot">
         SELECT t.*
-        FROM sys_org t WHERE t.name = #{name} and t.id != #{orgId};
+        FROM sys_org t
+        WHERE t.name = #{name} AND t.id != #{orgId};
     </select>
 
     <select id="getUserTotal" parameterType="int" resultType="int">
-        SELECT t.user_total from sys_org t WHERE t.id = #{id}
+        SELECT t.user_total
+        FROM sys_org t
+        WHERE t.id = #{id}
     </select>
 
     <select id="getById" parameterType="int" resultType="Organization">
-        SELECT t.* from sys_org t WHERE t.id = #{id}
+        SELECT t.*
+        FROM sys_org t
+        WHERE t.id = #{id}
     </select>
 
     <select id="listAllOrg" resultType="Organization">
-        SELECT t.* from sys_org t
+        SELECT
+        t.id,t.name,t.org_order orgOrder,t.user_total userTotal,t.status,t.p_id pId,
+        t.update_time updateTime , t.create_time createTime,t.create_uid createUid,
+        t.updae_uid updateUid
+        from sys_org t
         <where>
+            t.p_id = #{pId}
             <if test="null!=status ">
                 t.status = #{status}
             </if>
@@ -34,6 +44,9 @@
     </select>
 
     <select id="listAllOrgIds" parameterType="int" resultType="int">
-        SELECT t.id from sys_org WHERE t.p_id  = #{rootId} order by org_order
+        SELECT t.id
+        FROM sys_org
+        WHERE t.p_id = #{rootId}
+        ORDER BY org_order
     </select>
 </mapper>

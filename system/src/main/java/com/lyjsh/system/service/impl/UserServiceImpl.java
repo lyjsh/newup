@@ -44,8 +44,14 @@ public class UserServiceImpl implements UserService {
         //同时对应部门的人员总数增加
         int userTotalInDb = organizationDao.getUserTotal(user.getOrgId());
         userTotalInDb = userTotalInDb + 1;
+        //最上级部门人员总数也增加
+        int userRootTotal = organizationDao.getUserTotal(Organization.ROOT_ORG_ID);
+        userRootTotal = userRootTotal + 1;
         Organization orgInDb = organizationDao.getById(user.getOrgId());
+        Organization orgRootInDb = organizationDao.getById(Organization.ROOT_ORG_ID);
+        orgRootInDb.setUserTotal(userRootTotal);
         orgInDb.setUserTotal(userTotalInDb);
+        organizationDao.updateByPrimaryKeySelective(orgRootInDb);
         organizationDao.updateByPrimaryKeySelective(orgInDb);
         return userDao.insert(user)==1 ? true : false;
     }

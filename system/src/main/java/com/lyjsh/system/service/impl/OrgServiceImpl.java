@@ -55,7 +55,7 @@ public class OrgServiceImpl implements OrgService{
     @Override
     public PageInfo<Organization> pageOrg(Page page, Organization organization) {
         PageHelper.startPage(page.getPageNum(),page.getPageSize());
-        List<Organization> organizationList = organizationDao.listOrg(organization);
+        List<Organization> organizationList = organizationDao.listAllOrg(organization);
         PageInfo<Organization> pageInfo = new PageInfo(organizationList);
         return pageInfo;
     }

@@ -17,7 +17,7 @@ public class Organization implements Serializable{
     public static final String ROOT_ORG_NAME = "流水团公司";
 
     //默认最上级id
-    public static final int ROOT_ORG_ID = 0;
+    public static final int ROOT_ORG_ID = 1;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class Organization implements Serializable{
 
     private Integer updateUid;
 
-    //数据状态（启用、禁用）
+    //数据状态（有效、无效）
     private Integer status;
 
     //部门总人数

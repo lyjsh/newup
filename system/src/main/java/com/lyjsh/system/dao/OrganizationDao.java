@@ -13,13 +13,12 @@ public interface OrganizationDao extends BaseMapper<Organization>{
     //查找id不等于自身的其它数据是否有相同名称
     Organization getByNameIdNot(@Param("orgName") String orgName,@Param("orgId") Integer orgId);
 
-    List<Organization> listOrg(Organization organization);
-
     int getUserTotal(Integer orgId);
 
     Organization getById(Integer id);
 
     List<Organization> listAllOrg(Organization organization);
 
+    //列出所有部门（下拉框使用）
     List<Integer> listAllOrgIds(int rootId);
 }
