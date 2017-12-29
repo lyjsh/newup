@@ -41,7 +41,7 @@ public class DictionaryController {
             return ExecuteResult.bussError(buss.getMessage(),dictionary);
         }catch (Exception e) {
             e.printStackTrace();
-            return ExecuteResult.error();
+            return ExecuteResult.error(dictionary,e.getMessage());
         }
         return ExecuteResult.oprateFault("保存失败",dictionary);
     }

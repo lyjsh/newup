@@ -6,8 +6,10 @@
     <link rel="stylesheet" type="text/css" href="/static/Assets/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/static/Assets/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="/static/Assets/css/thems.css">
+    <link rel="stylesheet" type="text/css" href="/static/layui/css/layui.css">
     <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.form.min.js"></script>
 </head>
 <style>
     html, body {

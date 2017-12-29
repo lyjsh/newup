@@ -1,3 +1,63 @@
+<style>
+    .sider-container {
+        display: inline-block;
+        width: 60px;
+        height: 24px;
+        border: 1px solid #DEDEDE;
+        border-radius: 20px;
+        text-align: left;
+        box-sizing: border-box;
+        padding: 2px 0px;
+    }
+
+    .sider-bal {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #DEDEDE;
+        border-radius: 16px;
+        margin-left: 10px;
+        margin-right: 10px;
+        background: #E9E9E9;
+    }
+    .form_div {
+        width: 460px;
+        margin: auto;
+        min-height: 300px;
+        box-sizing: border-box;
+        padding: 10px;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+    }
+    .form_label {
+        display: inline-block;
+        height: 25px;
+        line-height: 25px;
+        width: 130px;
+        vertical-align: top;
+        text-align: right;
+    }
+    .form_content {
+        display: inline-block;
+        height: 30px;
+        width: 300px;
+        text-align: left;
+        vertical-align: middle;
+    }
+    .form_content input {
+        width: 180px;
+        height: 21px;
+    }
+    .form-content-div {
+        position: absolute;
+        width: 460px;
+        min-height: 300px;
+        left:50%;
+        top:50%;
+        margin-left: -230px;
+        margin-top:-150px;
+    }
+</style>
 <div id="content" class="content">
     <div class="right_m">
         <!--会议列表-->
@@ -6,88 +66,76 @@
                 <span class="name">部门管理</span>
                 <!--当前位置-->
                 <div class="position">
-                    <a href=""><img src="/static/Assets/images/icon5.png" alt=""/></a>
+                    <a href=""><img src="../../Assets/images/icon5.png" alt=""/></a>
                     <a href="">首页</a>
-                    <span><img src="/static/Assets/images/icon3.png" alt=""/></span>
+                    <span><img src="../../Assets/images/icon3.png" alt=""/></span>
                     <a href="">系统管理</a>
-                    <span><img src="/static/Assets/images/icon3.png" alt=""/></span>
-                    <a href="/organization/index">部门管理</a>
-                    <span><img src="/static/Assets/images/icon3.png" alt=""/></span>
-                    <a href="">新增</a>
+                    <span><img src="../../Assets/images/icon3.png" alt=""/></span>
+                    <a href="">部门管理</a>
                 </div>
                 <!--当前位置-->
             </div>
+            <!--查询-->
+            <div class="search">
+                <a href="/organization/index" class="btn">返回</a>
+            </div>
             <div class="space_hx">&nbsp;</div>
             <div class="data_body">
-                <!-- <div class="tree_div">
-
-                 </div>-->
                 <div class="table_div">
-                    <!--列表-->
-                    <div style="data_table">
-                        <table cellpadding="0" cellspacing="0" class="list_hy">
-                            <tr>
-                                <th class="xz" scope="col">选择</th>
-                                <th scope="col">
-                                    部门名称
-                                </th>
-                                <th scope="col" width="180px">
-                                    <div>成立时间<a href="" class="up">&nbsp;</a><a href="" class="down">&nbsp;</a></div>
-                                </th>
-                                <th scope="col" width="140px">部门人数</th>
-                                <th class="zt" scope="col">
-                                    <div>状态<a href="" class="up">&nbsp;</a><a href="" class="down">&nbsp;</a></div>
-                                </th>
-                                <th scope="col" width="140px">
-                                    <div>操作</div>
-                                </th>
-                            </tr>
-                        <#list pageInfo.list as org>
-                            <tr ng-repeat="org in orgList">
-                                <td class="xz"><input name="" type="checkbox" value="${org.id}"></td>
-                                <td>${org.name}</td>
-                                <td>${org.createTime}</td>
-                                <td>${org.userTotal}</td>
-                                <td>${org.status}</td>
-                                <td style="text-align: left">
-                                    <a class="edit_btn">
-                                        <img src="/static/images/edit_btn.png">
-                                        <!-- <span>编辑</span>-->
-                                    </a>
-                                </td>
-                            </tr>
-                        </#list>
-                        </table>
-                    </div>
-                    <!--列表-->
-                    <!--右边底部-->
-                    <div class="r_foot">
-                        <div class="r_foot_m">
-            	<span>
-                	<input name="" type="checkbox" value="">
-                    <em>全部选中</em>
-                </span>
-                            <a href="" class="btn">删除</a>
-                            <a href="" class="btn">刷新</a>
+                    <div class="form_div">
+                        <div class="form-content-div">
+                            <form id="orgAddForm" method="post" action="/organization/save">
+                                <ul class="hypz">
+                                    <li class="clearfix">
+                                        <span class="form_label">部门名称：</span>
+                                        <div class="form_content">
+                                            <input name="name" type="text">
+                                            <i style="color: red">*</i>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <input type="hidden" name="status">
+                                        <span class="form_label">状态：</span>
+                                        <div class="form_content">
+                                            <div class="sider-container">
+                                                <div class="sider-bal">
 
-                            <!--分页-->
-                            <div class="page">
-                                <a href="" class="prev"><img src="/static/Assets/images/icon7.png" alt=""/></a>
-                                <a class="now">1</a>
-                                <a href="">2</a>
-                                <a href="">3</a>
-                                <a href="">4</a>
-                                <a href="">5</a>
-                                <a href="">6</a>
-                                <a href="" class="next"><img src="/static/Assets/images/icon8.png" alt=""/></a>
-                            </div>
-                            <!--分页-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <a href="" class="btn">确认</a>
+                                        <a href="" class="btn">取消</a>
+                                    </li>
+                                </ul>
+                            </form>
                         </div>
                     </div>
                 </div>
+                <!--会议列表-->
             </div>
-            <!--右边底部-->
         </div>
-        <!--会议列表-->
-    </div>
-</div>
+        <script type="text/javascript">
+            $(function () {
+                /**
+                 * form表单效果
+                 */
+                $(".sider-container").click(function () {
+                    var currentPos = $(this).css("text-align");
+                    if ('left' == currentPos) {
+                        $('.sider-container').css({"text-align": "right", "background-color": "#98FB98"});
+                        $('.sider-bal').css({"background-color": "#FFF"});
+                        $('input[name="status"]').val(1);
+                    } else if ('right' == currentPos) {
+                        $('.sider-container').css({"text-align": "left", "background-color": "#FFF"});
+                        $('.sider-bal').css({"background-color": "#E9E9E9"});
+                        $('input[name="status"]').val(0);
+                    }
+                });
+
+                /**
+                 * form提交
+                 */
+            });
+        </script>

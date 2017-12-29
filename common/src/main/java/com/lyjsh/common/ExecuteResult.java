@@ -33,40 +33,49 @@ public class ExecuteResult {
 
     private Object data;
 
+    private String exception;
+
     public ExecuteResult() {
 
     }
 
-    public ExecuteResult (int code,String msg, Object result) {
+    public ExecuteResult(int code, String msg, Object result) {
         this.code = code;
         this.msg = msg;
         this.data = result;
     }
 
-   public static ExecuteResult success(Object result) {
-        return new ExecuteResult(EXE_SUCCESS,"操作成功",result);
-   }
+    public ExecuteResult(int code,String msg,Object result,String exception) {
+        this.code = code;
+        this.msg = msg;
+        this.data = result;
+        this.exception = exception;
+    }
 
-   public static ExecuteResult success() {
-        return new ExecuteResult(EXE_SUCCESS,"操作成功",null);
-   }
+    public static ExecuteResult success(Object result) {
+        return new ExecuteResult(EXE_SUCCESS, "操作成功", result);
+    }
 
-   //系统错误
-   public static ExecuteResult error() {
-        return new ExecuteResult(SYS_ERROR,"系统内部错误",null);
-   }
+    public static ExecuteResult success() {
+        return new ExecuteResult(EXE_SUCCESS, "操作成功", null);
+    }
 
-   //参数错误
-    public static ExecuteResult validateError(String msg,Object data) {
-        return new ExecuteResult(PARAM_ERROR,msg,data);
+    //系统错误
+    public static ExecuteResult error(Object data,String exception) {
+        return new ExecuteResult(SYS_ERROR, "系统内部错误", data,exception);
+    }
+
+    //参数错误
+    public static ExecuteResult validateError(String msg, Object data) {
+        return new ExecuteResult(PARAM_ERROR, msg, data);
     }
 
     //业务校验错误
-    public static ExecuteResult bussError(String msg,Object data) {
-        return new ExecuteResult(BUSSINESS_ERROR,msg,data);
+    public static ExecuteResult bussError(String msg, Object data) {
+        return new ExecuteResult(BUSSINESS_ERROR, msg, data);
     }
 
-    public static ExecuteResult oprateFault(String msg,Object data) {
-        return new ExecuteResult(OPRATE_FAULT,msg,data);
+    public static ExecuteResult oprateFault(String msg, Object data) {
+        return new ExecuteResult(OPRATE_FAULT, msg, data);
     }
 }

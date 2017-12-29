@@ -40,6 +40,9 @@
                                 <th scope="col" width="180px">
                                     <div>成立时间<a href="" class="up">&nbsp;</a><a href="" class="down">&nbsp;</a></div>
                                 </th>
+                                <th scope="col" width="180px">
+                                    <div>修改时间<a href="" class="up">&nbsp;</a><a href="" class="down">&nbsp;</a></div>
+                                </th>
                                 <th scope="col" width="140px">部门人数</th>
                                 <th class="zt" scope="col">
                                     <div>状态<a href="" class="up">&nbsp;</a><a href="" class="down">&nbsp;</a></div>
@@ -53,8 +56,18 @@
                                 <td class="xz"><input name="" type="checkbox" value="${org.id}"></td>
                                 <td>${org.name}</td>
                                 <td>${org.createTime}</td>
+                                <td>${org.updateTime}</td>
                                 <td>${org.userTotal}</td>
-                                <td>${org.status}</td>
+                                <td>
+                                    <div>
+                                        <#if org.status==1>
+                                            <span>启用</span>
+                                        <#else>
+                                            <span>禁用</span>
+                                        </#if>
+                                        <input type="hidden" value="${org.status}">
+                                    </div>
+                                </td>
                                 <td style="text-align: left">
                                     <a class="edit_btn">
                                         <img src="/static/images/edit_btn.png">

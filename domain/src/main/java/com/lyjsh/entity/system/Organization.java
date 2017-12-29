@@ -36,13 +36,14 @@ public class Organization implements Serializable{
 
     private Integer updateUid;
 
-    //数据状态（有效、无效）
+    //数据状态（启用，禁用）
+    @NotNull
     private Integer status;
 
     //部门总人数
-    private Integer userTotal;
+    private int userTotal;
 
     //显示顺序
     @NotNull(message = "排序不能为空")
-    private Integer orgOrder;
+    private int orgOrder;
 }
