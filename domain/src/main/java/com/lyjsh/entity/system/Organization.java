@@ -3,14 +3,13 @@ package com.lyjsh.entity.system;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Data
+@Table(name = "sys_org")
 public class Organization implements Serializable{
 
     //默认最上级名称

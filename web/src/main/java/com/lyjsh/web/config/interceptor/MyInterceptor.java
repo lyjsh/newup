@@ -1,5 +1,6 @@
 package com.lyjsh.web.config.interceptor;
 
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,7 +18,9 @@ public class MyInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-        modelAndView.setViewName("system/layout");
+        if (!ObjectUtils.isEmpty(modelAndView)) {
+            modelAndView.setViewName("system/layout");
+        }
     }
 
     @Override
