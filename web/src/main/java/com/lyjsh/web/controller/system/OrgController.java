@@ -5,7 +5,9 @@ import com.github.pagehelper.PageInfo;
 import com.lyjsh.Exception.BussException;
 import com.lyjsh.common.ExecuteResult;
 import com.lyjsh.entity.system.Organization;
+import com.lyjsh.entity.system.User;
 import com.lyjsh.system.service.OrgService;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,6 +66,9 @@ public class OrgController {
     @PostMapping("/save")
     @ResponseBody
     public ExecuteResult save(Organization organization) {
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
+        organization.setCreateUid(user.getId());
+        organization.setUpdateUid(user.getId());
         try {
             boolean result = orgService.save(organization);
             if (result) {
