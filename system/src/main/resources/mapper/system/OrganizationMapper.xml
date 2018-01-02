@@ -32,7 +32,7 @@
         SELECT
         t.id,t.name,t.org_order orgOrder,t.user_total userTotal,t.status,t.p_id pId,
         t.update_time updateTime , t.create_time createTime,t.create_uid createUid,
-        t.updae_uid updateUid
+        t.update_uid updateUid
         from sys_org t
         <where>
             t.p_id = #{pId}

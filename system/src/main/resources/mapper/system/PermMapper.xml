@@ -2,8 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lyjsh.system.dao.PermDao">
-
-    <select id="listByUserId" parameterType="int" resultType="Permission">
+    <resultMap type="Permission" id="permission">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="url" column="url"></result>
+        <result property="permValue" column="perm_value"></result>
+        <result property="type" column="type"></result>
+        <result property="pId" column="p_id"></result>
+        <result property="createUid" column="create_uid"></result>
+        <result property="updateUid" column="update_uid"></result>
+        <result property="status" column="status"></result>
+    </resultMap>
+    <select id="listByUserId" parameterType="int" resultMap="permission">
         SELECT t1.*
         FROM sys_user_perm t2 LEFT JOIN sys_perm t1 ON t2.perm_id = t1.id
         WHERE t2.user_id = #{userId}

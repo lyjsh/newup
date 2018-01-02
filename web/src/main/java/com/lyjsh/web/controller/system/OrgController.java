@@ -34,6 +34,7 @@ public class OrgController {
         PageInfo<Organization> pageInfo = orgService.pageOrg(page,organization);
         modelAndView.addObject("pageInfo",pageInfo);
         modelAndView.addObject("view","/system/org/index.ftl");
+        modelAndView.setViewName("system/layout");
         return modelAndView;
     }
 
@@ -46,6 +47,7 @@ public class OrgController {
     @GetMapping("/view/add")
     public ModelAndView toAddView(ModelAndView modelAndView) {
         modelAndView.addObject("view","/system/org/add.ftl");
+        modelAndView.setViewName("system/layout");
         Page page = new Page(1,10);
         Organization organization = new Organization();
         organization.setPId(Organization.ROOT_ORG_ID);

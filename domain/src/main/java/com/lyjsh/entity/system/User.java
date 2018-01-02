@@ -54,8 +54,13 @@ public class User implements Serializable{
 
 
     @Transient
-    private List<String> roleStrlist;
+    private List<Role> roleList;
 
     @Transient
-    private List<String> perminsStrlist;
+    private List<Permission> permissionList;
+
+    //密码盐
+    public String getCredentialsSalt() {
+        return userName;
+    }
 }

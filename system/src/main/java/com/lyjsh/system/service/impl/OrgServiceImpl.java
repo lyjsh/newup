@@ -39,6 +39,7 @@ public class OrgServiceImpl implements OrgService{
         organization.setCreateTime(new Timestamp(System.currentTimeMillis()));
         organization.setStatus(DataStatus.YES.value);
         organization.setUserTotal(0);
+        organization.setPId(Organization.ROOT_ORG_ID);
         return organizationDao.insert(organization)==1?true : false;
     }
 

@@ -18,7 +18,7 @@ public class Permission implements Serializable{
 
     private String url;
 
-    private String permSymbol;
+    private String permValue;
 
     private Integer type;
 

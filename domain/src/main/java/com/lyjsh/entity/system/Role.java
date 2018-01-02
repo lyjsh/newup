@@ -16,6 +16,8 @@ public class Role {
 
     private String name;
 
+    private String roleValue;
+
     private Timestamp createTime;
 
     private Timestamp updateTime;

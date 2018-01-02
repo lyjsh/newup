@@ -132,7 +132,7 @@
 <body>
 <div class="login-content">
     <p>管理员登陆</p>
-    <form action="">
+    <form action="/login" method="post">
         <li class="loginItem">
             <span>用户名：</span>
             <input type="text" name="userName" placeholder="请输入用户名" class="login_input">
@@ -157,7 +157,7 @@
 </div>
 
 </body>
-<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
 <script type="text/javascript">
     function rememClick() {
         var remember = $('input[name=rememberMe]').val();
